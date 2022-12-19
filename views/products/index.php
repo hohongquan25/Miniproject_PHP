@@ -30,7 +30,7 @@
         <?php
         //lấy dữ liệu từ CSDL và để ra bảng (phần lặp lại)
         //bước 1:kết nối tời csdl(mysql)
-        $conn = mysqli_connect('localhost','root','','mvc');
+        $conn = mysqli_connect('localhost','root','','mini-project');
             if(!$conn){
                 die("Không thể kết nối,kiểm tra lại các tham số kết nối");
                     }
