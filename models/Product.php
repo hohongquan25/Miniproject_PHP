@@ -5,7 +5,7 @@ class Product {
     public $tenSP;
     public $img;
 
-    public function insert($tenSP) {
+    public function insert($tenSP,$img) {
         $connection = $this->connectDb();
         //tạo và thực thi truy vấn
         $queryInsert = "INSERT INTO products(pr_name,pr_image) 
