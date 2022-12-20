@@ -1,63 +1,41 @@
 <?php
 require_once 'configs/database.php';
-class Product {
-    public $id;
-    public $tenSP;
-    public $img;
+class Product extends Model {
+    private $id;
+    private $name;
+    private $image;
+    private $date;
 
-    public function insert($tenSP,$img) {
-        $connection = $this->connectDb();
-        //tạo và thực thi truy vấn
-        $queryInsert = "INSERT INTO products(pr_name,pr_image) 
-        VALUES ('$tenSP','$img')";
-        $isInsert = mysqli_query($connection, $queryInsert);
-        $this->closeDb($connection);
+    public function setID($ID) {
+        $this->id = $ID;
+    } 
 
-        return $isInsert;
+    public function setName($name) {
+        $this->name = $name;
     }
 
-    public function getproductById($id = null) {
-        $connection = $this->connectDb();
-        $querySelect = "SELECT * FROM products WHERE pr_id=$id";
-        $results = mysqli_query($connection, $querySelect);
-        $product = [];
-        if (mysqli_num_rows($results) > 0) {
-            $products = mysqli_fetch_all($results, MYSQLI_ASSOC);
-            $product = $products[0];
-        }
-        $this->closeDb($connection);
-
-        return $product;
+    public function setImage($image) {
+        $this->image = $image;
     }
 
-    /**
-     * Truy vấn lấy ra tất cả sách trong CSDL
-     */
-    public function index() {
-        $connection = $this->connectDb();
-        //truy vấn
-        $querySelect = "SELECT * FROM products";
-        $results = mysqli_query($connection, $querySelect);
-        $products = [];
-        if (mysqli_num_rows($results) > 0) {
-            $products = mysqli_fetch_all($results, MYSQLI_ASSOC);
-        }
-        $this->closeDb($connection);
-
-        return $products;
+    public function setDate($date) {
+        $this->date =  $date;
     }
 
-    public function connectDb() {
-        $connection = mysqli_connect(DB_HOST,
-            DB_USERNAME, DB_PASSWORD, DB_NAME);
-        if (!$connection) {
-            die("Không thể kết nối. Lỗi: " .mysqli_connect_error());
-        }
-
-        return $connection;
+    public function getID() {
+        return $this->ID;
     }
 
-    public function closeDb($connection = null) {
-        mysqli_close($connection);
+    public function getName() {
+        return $this->name;
     }
+
+    public function getImage() {
+        return $this->image; 
+    }
+
+    public function getDate() {
+        return $this->date;
+    }
+
 }

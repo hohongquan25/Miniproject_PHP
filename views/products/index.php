@@ -21,6 +21,7 @@
         <th scope="col">STT</th>
         <th scope="col">Tên sản phẩm</th>
         <th scope="col">Ảnh</th>
+        <th scope="col">Ngày sản xuất</th>
         <th scope="col">Chi tiết</th>
         <th scope="col">Sửa</th>
         <th scope="col">Xóa</th>
@@ -48,6 +49,7 @@
         <th scope="row"><?php echo $i; ?> </th>
         <td><?php echo $row['pr_name']; ?></td>
         <td><img src="<?php echo $row['pr_image']; ?>" width="50px"></td>
+        <td><?php echo $row['pr_date']; ?></td>
         <td><a href="#"><i class="fas fa-info-circle"></i></a></td>
         <td><a href="#"><i class="fas fa-edit"></i></a></td>
         <td><a href="xoa.php?pr_id=<?php echo $row['pr_id']; ?>"><i class="fas fa-trash"></i></a></td>

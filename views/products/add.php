@@ -32,6 +32,14 @@
                       <input type="file" class="form-control" id="hinh" name="hinh">
                     </div>
                   </div>
+
+                  <div class="row mb-3">
+                    <label for="date" class="col-sm-2 col-form-label">Ngày sản xuất</label>
+                    <div class="col-sm-10">
+                        <input type="date" class="form-control" id="date" name="date">
+
+                    </div>
+                  </div>
                   
                   </div>
                   <button type="submit" class="btn btn-primary" name="btnSave">Lưu</button>

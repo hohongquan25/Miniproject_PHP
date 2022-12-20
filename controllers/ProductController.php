@@ -1,12 +1,12 @@
 <?php
-require_once 'models/Product.php';
+require_once 'models/Model.php';
 class ProductController {
     /**
      * Liệt kê các sách đang có trên hệ thống
      */
     public function index() {
-        $product = new Product();
-        $products = $product->index();
+        $product = new Model();
+        $products = $product->getAllProduct();
         require_once 'views/products/index.php';
     }
 
@@ -15,6 +15,7 @@ class ProductController {
         //xử lý submit form
         if (isset($_POST['btnSave'])) {
             $tenSP = $_POST['txtSP'];
+            $date = $_POST['date'];
             $target_dir="uploads/";
             $target_file=$target_dir . basename($_FILES["hinh"]["name"]);
             $img=$target_file;
@@ -31,11 +32,11 @@ class ProductController {
             }
             else {
                 //gọi model để insert dữ liệu vào database
-                $product = new Product();
+                $product = new Model();
                 //gọi phương thức để insert dữ liệu
                 //nên tạo 1 mảng tạm để lưu thông tin của
 //                đối tượng dựa theo cấu trúc bảng
-                $isInsert = $product->insert($tenSP,$img);
+                $isInsert = $product->insertProduct($tenSP,$img, $date);
                 if ($isInsert) {
                     $_SESSION['success'] = "Thêm mới thành công";
                 }
