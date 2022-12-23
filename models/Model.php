@@ -6,8 +6,9 @@
  * Time: 6:52 PM
  */
 
-require_once 'configs/database.php';
-class Model  {
+require_once 'configs/config.php';
+require_once 'models/Product.php';
+class Model extends Product {
     protected $mysqli;
     function __construct() {
         $this->connectDb();
@@ -18,9 +19,9 @@ class Model  {
             die("Không thể kết nối. Lỗi: " .mysqli_connect_error());
         }
     }
-     public function insertProduct( $name, $image, $date) {
-        $stmt = $this->mysqli->prepare("INSERT INTO products (`pr_name`, `pr_image`, `pr_date`) VALUES (?,?,?)");
-        $stmt->bind_param("sss",$name,$image,$date);
+    public function insertProduct($name, $image, $price) {
+        $stmt = $this->mysqli->prepare("INSERT INTO products (`pr_name`, `pr_image`, `pr_price`) VALUES (?,?,?)");
+        $stmt->bind_param("ssd",$name,$image,$price);
          if( $stmt->execute() == TRUE){
             return true ;
         }else{
@@ -57,16 +58,16 @@ class Model  {
     }
     // Xoá sản phẩm trong CSDL
     public function deleteProduct($id){
-        if($this->mysqli->query("DELETE FROM `products` WHERE `id` = '".$id."';")== TRUE){
+        if($this->mysqli->query("DELETE FROM `products` WHERE `pr_id` = '".$id."';") == TRUE){
             return true;
         }else{
             return false;
         }
     }
     // Cập nhật thông tin sản phẩm
-    public function updateProduct($id,$name,$image,$date){
-        $stmt = $this->mysqli->prepare("UPDATE `products` SET `pr_name`=?, `pr_image`=?, `pr_date`=? WHERE `id` = ?");
-        $stmt->bind_param("ssss",$name,$image,$date,$id);
+    public function updateProduct($id, $name, $image, $price, $date){
+        $stmt = $this->mysqli->prepare("UPDATE `products` SET `pr_name`=?, `pr_image`=?, `pr_price`=?, `pr_date`=? WHERE `pr_id` = ?");
+        $stmt->bind_param("ssdss",$name,$image,$price,$date,$id);
         if($stmt->execute()==TRUE){
             return true;
         }else{

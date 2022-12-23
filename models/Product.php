@@ -1,6 +1,5 @@
 <?php
-require_once 'configs/database.php';
-class Product extends Model {
+class Product {
     private $id;
     private $name;
     private $image;
