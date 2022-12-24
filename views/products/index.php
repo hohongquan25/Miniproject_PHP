@@ -21,6 +21,7 @@
         <th scope="col">STT</th>
         <th scope="col">Tên sản phẩm</th>
         <th scope="col">Ảnh</th>
+        <th scope="col">Giá</th>
         <th scope="col">Chi tiết</th>
         <th scope="col">Sửa</th>
         <th scope="col">Xóa</th>
