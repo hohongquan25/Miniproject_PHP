@@ -4,12 +4,13 @@ class Product {
     public $id;
     public $tenSP;
     public $img;
+    public $gia;
 
-    public function insert($tenSP,$img) {
+    public function insert($tenSP,$img,$gia) {
         $connection = $this->connectDb();
         //tạo và thực thi truy vấn
-        $queryInsert = "INSERT INTO products(pr_name,pr_image) 
-        VALUES ('$tenSP','$img')";
+        $queryInsert = "INSERT INTO products(pr_name,pr_image,pr_price) 
+        VALUES ('$tenSP','$img','$gia')";
         $isInsert = mysqli_query($connection, $queryInsert);
         $this->closeDb($connection);
 
