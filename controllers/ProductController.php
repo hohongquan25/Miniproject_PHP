@@ -24,10 +24,11 @@ class ProductController {
               $uploadOk=0;
             }
             move_uploaded_file($_FILES["hinh"]["tmp_name"],$target_file);
+            $gia = $_POST['txtGia'];
             //xử lý validate, nếu mà để trống tên sách
 //            thì báo lỗi và không cho submit form
-            if (empty($tenSP)) {
-                $error = "Name không được để trống";
+            if (empty($tenSP) || empty($gia)) {
+                $_SESSION['error'] = "Điền thôi cũng thiếu à ông cóc :>";
             }
             else {
                 //gọi model để insert dữ liệu vào database
@@ -35,7 +36,7 @@ class ProductController {
                 //gọi phương thức để insert dữ liệu
                 //nên tạo 1 mảng tạm để lưu thông tin của
 //                đối tượng dựa theo cấu trúc bảng
-                $isInsert = $product->insert($tenSP,$img);
+                $isInsert = $product->insert($tenSP,$img,$gia);
                 if ($isInsert) {
                     $_SESSION['success'] = "Thêm mới thành công";
                 }
