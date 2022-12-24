@@ -32,6 +32,12 @@
                       <input type="file" class="form-control" id="hinh" name="hinh">
                     </div>
                   </div>
+                  <div class="row mb-3">
+                    <label for="txtGia" class="col-sm-2 col-form-label">Giá</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="txtGia" name="txtGia">
+                    </div>
+                  </div>
                   
                   </div>
                   <button type="submit" class="btn btn-primary" name="btnSave">Lưu</button>
