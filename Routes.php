@@ -18,12 +18,12 @@ Route::set('add', function() {
 // route for edit product
 Route::set('edit', function() {
 		// new EditController('edit');
-		AddController::CreateView('edit');
+		EditController::CreateView('edit');
 });
 
 // route for delete, with param 	dynamic
 Route::set('delete', function() {
-		AddController::CreateView('delete');
+		DeleteController::CreateView('delete');
 });
 
 

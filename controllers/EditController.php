@@ -31,8 +31,7 @@ class EditController extends Controller {
                 die();
         }
         move_uploaded_file($_FILES["hinh"]["tmp_name"],$target_file);
-        $model = new Model();
-    	if ($model->updateProduct($id, $name, $target_file, $price, $date)){
+    	if ($this->edit->updateProduct($id, $name, $target_file, $price, $date)){
             echo "<script>alert('Sửa sản phẩm thành công !');document.location='index.php'</script>";
         }else{
             echo "<script>alert('Đã có lỗi, vui lòng thử lại!');history.back()</script>";
@@ -41,5 +40,4 @@ class EditController extends Controller {
 }
 }
 // $id = filter_input(INPUT_GET, 'id');
-// 
 ?>
