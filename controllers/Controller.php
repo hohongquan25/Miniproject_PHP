@@ -1,7 +1,8 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Admin
- * Date: 11/14/2019
- * Time: 6:51 PM
- */
+	class Controller {
+
+		public static function CreateView($view) {
+			require_once("./views/$view.php");
+		}
+	}
+?>

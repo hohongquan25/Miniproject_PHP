@@ -1,0 +1,1 @@
+<?php new DeleteController($_GET['id']);?>
