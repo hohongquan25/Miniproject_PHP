@@ -1,3 +1,9 @@
+<?php
+  session_start();
+  if(!isset($_SESSION['logged_in'])) {
+    header("Location:http://localhost/Miniproject_PHP/login");
+  }
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -21,7 +27,9 @@
       </ul>
 
       <div class="col-md-3 text-end">
-        <button type="button" class="btn btn-light"  style="margin-right: 20px;"  onclick="document.location='index.php?url=login'">Đăng xuất</button>
+
+       <a href="index.php?url=logout" style="text-decoration: none"><button type="button" class="btn btn-light" style="margin-right: 20px;">Đăng xuất</button></a>
+
       </div>
   </header>
 

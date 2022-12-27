@@ -1,5 +1,4 @@
 <?php
-  
 
   class LogoutController extends Controller
     {
@@ -13,4 +12,5 @@
      		session_destroy();
      	}
     }
+
 ?>

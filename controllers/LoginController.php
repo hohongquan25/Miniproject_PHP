@@ -1,6 +1,8 @@
 <?php
 
+
   class LoginController extends Controller
+
     {
         private $model;
         function __construct($view){
