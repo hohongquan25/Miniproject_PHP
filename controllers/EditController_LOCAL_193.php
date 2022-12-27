@@ -2,14 +2,14 @@
 
 class EditController extends Controller {
 
-	private $model;
+	private $edit;
+    private $name;
+    private $price;
+    private $image;
+    private $date;
 
-    public function __construct($view) {
-        $this->model = new Model();
-        $id = $_GET['id'];
-        $this->editProduct($id);
-
-        $this->CreateView($view, ["row" => $this->model->getProductByID($id)]);
+    public function __construct() {
+        $this->edit = new Model();
 
     }
     public function editProduct($id) {
@@ -31,7 +31,7 @@ class EditController extends Controller {
                 die();
         }
         move_uploaded_file($_FILES["hinh"]["tmp_name"],$target_file);
-    	if ($this->model->updateProduct($id, $name, $target_file, $price, $date)){
+    	if ($this->edit->updateProduct($id, $name, $target_file, $price, $date)){
             echo "<script>alert('Sửa sản phẩm thành công !');document.location='index.php'</script>";
         }else{
             echo "<script>alert('Đã có lỗi, vui lòng thử lại!');history.back()</script>";
@@ -39,4 +39,5 @@ class EditController extends Controller {
     }
 }
 }
+// $id = filter_input(INPUT_GET, 'id');
 ?>

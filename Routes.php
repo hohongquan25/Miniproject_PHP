@@ -34,7 +34,9 @@ Route::set('login', function() {
 Route::set('logout', function() {
 	new LogoutController('logout');
 });
-
+Route::set('login', function() {
+	loginController::CreateView('login');
+});
 
 // route test
 
