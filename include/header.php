@@ -21,7 +21,7 @@
       </ul>
 
       <div class="col-md-3 text-end">
-        <button type="button" class="btn btn-light" style="margin-right: 20px;">Đăng xuất</button>
+        <button type="button" class="btn btn-light"  style="margin-right: 20px;"  onclick="document.location='index.php?url=login'">Đăng xuất</button>
       </div>
   </header>
 

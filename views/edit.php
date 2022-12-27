@@ -1,11 +1,5 @@
 <?php include 'include/header.php';?>
-<?php 
-  $model = new Model();
-  $row = $model->getProductByID($_GET['id']);
-  $edit = new EditController();
-  $edit->editProduct($_GET['id']);
-  // EditController::editProduct($_GET['id']);
-?>
+<?php $row = $data["row"];?>
       <main class="mt-4">
         <div class="container">
             <div class="row">

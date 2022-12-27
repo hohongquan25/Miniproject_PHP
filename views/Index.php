@@ -18,7 +18,7 @@
     </thead>
     <tbody>
         <?php
-        			$rows = Index::getList();
+              $rows = $data["rows"];
         			foreach ($rows as $row){
 			        echo "<tr>";
 			        echo "<th scope=\"row\">" . $row['pr_id']."</th>";

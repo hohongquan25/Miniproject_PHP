@@ -2,13 +2,12 @@
 
 class DeleteController extends Controller {
 	private $delete;
-    public function __construct($id) {
+    public function __construct($view) {
         $this->delete = new Model();
-       	if($this->delete->deleteProduct($id)== TRUE){
-            echo "<script>alert('Xóa sản phẩm thành công !');document.location='index.php'</script>";
-        }else{
-            echo "<script>alert('Xóa sản phẩm không thành công, vui lòng thử lại!');history.back()</script>";
-        }
+
+        $isDelete = $this->delete->deleteProduct($_GET['id']);
+
+        $this->CreateView($view, ['isDelete' => $isDelete]);
      }
 }
 
