@@ -31,8 +31,14 @@ Route::set('delete', function() {
 Route::set('about-us', function() {
 		 AboutUs::CreateView('AboutUs');
 });
+
 Route::set('login', function() {
 	loginController::CreateView('login');
 });
+Route::set('logout', function() {
+	logoutController::CreateView('logout');
+});
+
+
 
 ?>

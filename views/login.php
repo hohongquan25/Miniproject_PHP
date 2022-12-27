@@ -209,6 +209,8 @@ label {
 } */
 }
 <?php
+session_start();
+
 //   $rusername = '';
 //   $ruserpass = '';
 //  if(isset($_COOKIE['username']) && isset($_COOKIE['userpass'])){
