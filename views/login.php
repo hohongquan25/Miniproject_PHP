@@ -208,17 +208,7 @@ label {
   letter-spacing: 4px
 } */
 }
-<?php
-session_start();
 
-//   $rusername = '';
-//   $ruserpass = '';
-//  if(isset($_COOKIE['username']) && isset($_COOKIE['userpass'])){
-//      $rusername = $_COOKIE['username'];
-//      $ruserpass = $_POST['userpass'];
-//      $rremember = true;
-//    }
-?>
 </style>
 <div class="login-box">
   <h2>Login</h2>
@@ -238,3 +228,4 @@ session_start();
     <button type="submit" style="margin-top:30px; border-radius:15px;"><a>Đăng nhập</a></button>
   </form>
 </div>
+

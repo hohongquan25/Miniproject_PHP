@@ -5,31 +5,34 @@
 
 // route index
 Route::set('index.php', function(){
-		Index::CreateView('Index');
+	new Index('Index');
 });
 
 
 // route for add product
 Route::set('add', function() {
-		AddController::CreateView('add');
+	new AddController('add');
 });
 
 
 // route for edit product
 Route::set('edit', function() {
-		// new EditController('edit');
-		EditController::CreateView('edit');
+	new EditController('edit');
 });
 
 // route for delete, with param 	dynamic
 Route::set('delete', function() {
-		DeleteController::CreateView('delete');
+	new DeleteController('delete');
+});
+
+Route::set('login', function() {
+	new LoginController('login');
 });
 
 
-// route test
-Route::set('about-us', function() {
-		 AboutUs::CreateView('AboutUs');
+
+Route::set('logout', function() {
+	new LogoutController('logout');
 });
 
 Route::set('login', function() {
@@ -40,5 +43,7 @@ Route::set('logout', function() {
 });
 
 
+
+// route test
 
 ?>

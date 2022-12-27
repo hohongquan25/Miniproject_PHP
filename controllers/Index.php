@@ -2,15 +2,16 @@
 
 class Index extends Controller {
 
-	private $list;
+	private $model;
+    public function __construct($view){
+        $this->model = new Model();
+        $rows = $this->getList();
 
-    public function __construct(){
-        $this->list = new Model();
+        $this->CreateView($view, ["rows"=>$rows]);
     }
 
     public function getList(){
-    	$model = new Model();
-        $rows = $model->getAllProduct();
+        $rows = $this->model->getAllProduct();
         return $rows;
     }
 }

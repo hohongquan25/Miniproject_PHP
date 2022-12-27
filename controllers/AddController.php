@@ -1,9 +1,12 @@
 <?php
 
 class AddController extends Controller {
-	private $add;
-    public function __construct() {
-        $this->add = new Model();
+	private $model;
+    public function __construct($view) {
+        $this->model = new Model();
+        $this->addProduct();
+
+        $this->CreateView($view);
     }
 
 	public function addProduct() {
@@ -25,25 +28,24 @@ class AddController extends Controller {
 //            thì báo lỗi và không cho submit form
             if (empty($tenSP) || empty($price)) {
                 $error = "Các trường không được để trống";
+                echo "<script>alert('$error');history.back()</script>";
             }
             else {
                 //gọi model để insert dữ liệu vào database
-                $product = new Model();
                 //gọi phương thức để insert dữ liệu
                 //nên tạo 1 mảng tạm để lưu thông tin của
 //                đối tượng dựa theo cấu trúc bảng
-                $isInsert = $product->insertProduct($tenSP,$img, $price);
+                $isInsert = $this->model->insertProduct($tenSP,$img, $price);
                 if ($isInsert) {
-                    $_SESSION['success'] = "Thêm mới thành công";
+                     echo "<script>alert('Thêm mới thành công!');document.location='index.php'</script>";
+                    // $_SESSION['success'] = "Thêm mới thành công";
                 }
                 else {
-                    $_SESSION['error'] = "Thêm mới thất bại";
+                    echo "<script>alert('Thêm mới thất bại');history.back()</script>";
+                    // $_SESSION['error'] = "Thêm mới thất bại";
                 }
-                header("Location: index.php");
-                exit();
             }
         }
     }
 }
-AddController::addProduct();
 ?>
