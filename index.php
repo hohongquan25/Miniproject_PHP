@@ -2,7 +2,7 @@
 
 session_start();
 if(!isset($_SESSION['logged_in']) && isset($_GET['url']) && $_GET['url']!="login") {
-    header("Location:index.php?url=login");
+    header("Location:login");
  }
 
 require_once('Routes.php');

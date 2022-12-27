@@ -27,8 +27,8 @@
               echo "<td>". $row['pr_price']. "</td>";
 			        echo "<td>". $row['pr_date']. "</td>";
 			        echo "<td><a href=\"#\"><i class=\"fas fa-info-circle\"></i></a></td>";
-			        echo "<td><a href=\"index.php?url=edit&id=".$row['pr_id']."\"><i class=\"fas fa-edit\"></i></a></td>";
-			        echo "<td><a href=\"index.php?url=delete&id=".$row['pr_id']. "\"><i class=\"fas fa-trash\"></i></a></td>";
+			        echo "<td><a href=\"edit&id=".$row['pr_id']."\"><i class=\"fas fa-edit\"></i></a></td>";
+			        echo "<td><a href=\"delete&id=".$row['pr_id']. "\"><i class=\"fas fa-trash\"></i></a></td>";
 			      	echo "</tr>";
 			        }
         ?>

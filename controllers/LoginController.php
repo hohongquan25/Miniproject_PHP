@@ -6,6 +6,9 @@
     {
         private $model;
         function __construct($view){
+              if(isset($_SESSION['logged_in'])) {
+                    header("Location:index.php");
+                 }
         	 $this->model = new LoginModel(); 
         	 $this->loginUser();
 
