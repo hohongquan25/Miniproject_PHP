@@ -208,9 +208,7 @@ label {
   letter-spacing: 4px
 } */
 }
-<?php
-  session_start();
-?>
+
 </style>
 <div class="login-box">
   <h2>Login</h2>
