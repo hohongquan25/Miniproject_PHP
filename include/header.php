@@ -1,9 +1,4 @@
-<?php
-  session_start();
-  if(!isset($_SESSION['logged_in'])) {
-    header("Location:http://localhost/Miniproject_PHP/login");
-  }
-?>
+
 <!doctype html>
 <html lang="en">
   <head>
