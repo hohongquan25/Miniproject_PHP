@@ -7,8 +7,7 @@
  */
 
 require_once 'configs/config.php';
-require_once 'models/Product.php';
-class Model extends Product {
+class Model{
     protected $mysqli;
     function __construct() {
         $this->connectDb();

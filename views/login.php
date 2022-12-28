@@ -209,18 +209,18 @@ label {
 } */
 }
 <?php
-  session_start();
+  if (isset($data["user"])) $user = $data["user"];
 ?>
 </style>
 <div class="login-box">
   <h2>Login</h2>
-  <form action="index.php?url=login" method="post">
+  <form action="index.php?url=user&action=login" method="post">
     <div class="user-box">
-      <input type="text" name="username" required=""  value = "">
+      <input type="text" name="username" required=""  value = "<?php if (isset($user)) echo $user["user_name"] ?>">
       <label>Tên đăng nhập</label>
     </div>
     <div class="user-box">
-      <input type="password" name="userpass" required="" value = "">
+      <input type="password" name="userpass" required="" value = "<?php if (isset($user)) echo $user["user_pass"] ?>">
       <label>Mật khẩu</label>
     </div>
     <div class="user-box">      

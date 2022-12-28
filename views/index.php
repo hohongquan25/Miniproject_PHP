@@ -27,8 +27,8 @@
               echo "<td>". $row['pr_price']. "</td>";
 			        echo "<td>". $row['pr_date']. "</td>";
 			        echo "<td><a href=\"#\"><i class=\"fas fa-info-circle\"></i></a></td>";
-			        echo "<td><a href=\"index.php?url=edit&id=".$row['pr_id']."\"><i class=\"fas fa-edit\"></i></a></td>";
-			        echo "<td><a href=\"index.php?url=delete&id=".$row['pr_id']. "\"><i class=\"fas fa-trash\"></i></a></td>";
+			        echo "<td><a href=\"product&action=edit&id=".$row['pr_id']."\"><i class=\"fas fa-edit\"></i></a></td>";
+			        echo "<td><a href=\"product&action=delete&id=".$row['pr_id']. "\"><i class=\"fas fa-trash\"></i></a></td>";
 			      	echo "</tr>";
 			        }
         ?>
@@ -36,7 +36,7 @@
 
     </table>
     <div>
-      <button type="button" class="btn btn-info"><a href="index.php?url=add" style="text-decoration: none;">Thêm sản phẩm</a></button>
+      <button type="button" class="btn btn-info"><a href="index.php?url=product&action=add" style="text-decoration: none;">Thêm sản phẩm</a></button>
     </div>
   </div>
   </div>

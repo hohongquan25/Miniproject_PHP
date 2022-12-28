@@ -1,10 +1,9 @@
 <?php
 
 class Index extends Controller {
-
-	private $model;
+    
     public function __construct($view){
-        $this->model = new Model();
+        $this->model = new product();
         $rows = $this->getList();
 
         $this->CreateView($view, ["rows"=>$rows]);

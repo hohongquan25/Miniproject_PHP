@@ -23,7 +23,7 @@
 
       <div class="col-md-3 text-end">
 
-       <a href="index.php?url=logout" style="text-decoration: none"><button type="button" class="btn btn-light" style="margin-right: 20px;">Đăng xuất</button></a>
+       <a href="index.php?url=user&action=logout" style="text-decoration: none"><button type="button" class="btn btn-light" style="margin-right: 20px;">Đăng xuất</button></a>
 
       </div>
   </header>
