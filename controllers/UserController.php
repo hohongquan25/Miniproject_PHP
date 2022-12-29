@@ -1,7 +1,7 @@
 <?php
 
 
-  class UserController extends Controller
+  class UserController extends BaseController
 
     {
 
@@ -29,7 +29,7 @@
 
 		   
 		    $result = false;
-		    $user = $this->model->check_login_v2($username);
+		    $user = $this->model->check_login($username);
 		    if (isset($user)) {
 		    	if ($user["user_pass"] == $userpass || $user["user_pass"] == md5($userpass)) 
 		    	$result = true;

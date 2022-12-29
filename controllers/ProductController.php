@@ -1,9 +1,10 @@
 <?php
 
 
-  class ProductController extends Controller {
+  class ProductController extends BaseController {
 
 
+    // Thêm sản phẩm 
   	public function add() {
         $error = '';
         //xử lý submit form
@@ -33,7 +34,10 @@
                     //gọi phương thức để insert dữ liệu
                     //nên tạo 1 mảng tạm để lưu thông tin của
     //                đối tượng dựa theo cấu trúc bảng
-                    $isInsert = $this->model->insertProduct($tenSP,$img, $price);
+                    // $isInsert = $this->model->insertProduct($tenSP,$img, $price);
+                    $isInsert = $this->model->insert(["name"=>$tenSP,
+                                                            "image"=>$img, 
+                                                            "price"=>$price]);
                     if ($isInsert) {
                          echo "<script>alert('Thêm mới thành công!');document.location='index'</script>";
                         // $_SESSION['success'] = "Thêm mới thành công";
@@ -52,10 +56,10 @@
     }
 
 
-
+    // sửa thông tin sản phẩm
     public function edit() {
     	$id = $_GET['id'];
-    	$this->data["row"] = $this->model->getProductByID($id);
+    	$this->data["row"] = $this->model->get($id);
 		if(isset($_POST['btnEdit'])){ 
     	$name = $_POST['txtSP'];
     	$price =$_POST['price'];
@@ -77,7 +81,13 @@
             move_uploaded_file($_FILES["hinh"]["tmp_name"],$target_file);
         $check=is_numeric($price);
         if($check){
-            if ($this->model->updateProduct($id, $name, $target_file, $price, $date)){
+            //$this->model->updateProduct($id, $name, $target_file, $price, $date
+            if ($this->model->update(["id"=>$id, 
+                                      "name"=>$name, 
+                                      "image"=>$target_file, 
+                                      "price"=>$price, 
+                                      "date"=>$date]))
+            {
                 echo "<script>alert('Sửa sản phẩm thành công !');document.location='index'</script>";
             }else{
                 echo "<script>alert('Đã có lỗi, vui lòng thử lại!');history.back()</script>";
@@ -88,14 +98,16 @@
         }
     }
 }
-
+    
+    // Xóa sản phẩm 
 	public function delete() {
-		 $isDelete = $this->model->deleteProduct($_GET['id']);
+		 $isDelete = $this->model->delete($_GET['id']);
 		 $this->data["isDelete"] = $isDelete;
 	}
 
+    // Lấy thông tin sản phẩm
 	public function index() {
-		$rows = $this->model->getAllProduct();
+		$rows = $this->model->get();
         $this->data["rows"] = $rows;
 	}
   }

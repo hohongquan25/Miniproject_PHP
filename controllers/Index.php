@@ -1,6 +1,6 @@
 <?php
 
-class Index extends Controller {
+class Index extends BaseController {
     
     public function __construct($view){
         $this->model = new product();
@@ -9,7 +9,7 @@ class Index extends Controller {
     }
 
     public function getList(){
-        $rows = $this->model->getAllProduct();
+        $rows = $this->model->get();
         return $rows;
     }
 }

@@ -2,7 +2,7 @@
 
 
 require_once 'configs/config.php';
-class BaseModel{
+abstract class BaseModel{
     protected $mysqli;
     function __construct() {
         $this->connectDb();
@@ -13,4 +13,9 @@ class BaseModel{
             die("Không thể kết nối. Lỗi: " .mysqli_connect_error());
         }
     }
+
+    abstract function insert($data);
+    abstract function update($data);
+    abstract function delete($id);
+    abstract function get($id = null);
 }
