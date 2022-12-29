@@ -9,6 +9,10 @@ class Route {
 		self::$validRoutes[] = $route;
 
 		// print_r(self::$validRoutes);
+		if (!isset($_GET['url'])) {
+			header("Location: index");
+		}
+		else 
 		if ($_GET['url'] == $route) {
 				$function->__invoke();
 		}
