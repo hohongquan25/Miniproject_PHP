@@ -3,11 +3,14 @@
 
 // Đăng ký route 
 
-// route index
-Route::set('index.php', function(){
-	new Index('index');
+
+Route::set('', function(){
 });
 
+// route index
+Route::set('index', function(){
+	new Index('index');
+});
 
 // // route for add product
 // Route::set('add', function() {

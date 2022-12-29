@@ -7,6 +7,7 @@
 
      	function logout() {
      		session_destroy();
+     		header('Location:index');
      	}
 
      	function login() {
@@ -48,7 +49,7 @@
 		        else 
 		        	setcookie('cookie_user', $cookie, time() - 3600, '/');
 		        // Nếu đăgn nhập thành công, chuyển hướng người dùng đến trang chủ
-		         header('Location:index.php');
+		         header('Location:index');
 		         exit;	       
 		   
 		    }

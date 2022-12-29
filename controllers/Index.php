@@ -4,8 +4,7 @@ class Index extends Controller {
     
     public function __construct($view){
         $this->model = new product();
-        $rows = $this->getList();
-
+        $rows = $this->getList();        
         $this->CreateView($view, ["rows"=>$rows]);
     }
 

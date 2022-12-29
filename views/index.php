@@ -20,10 +20,11 @@
         <?php
               $rows = $data["rows"];
         			foreach ($rows as $row){
+              $src_img = "http://localhost:8888/Miniproject_PHP/";
 			        echo "<tr>";
 			        echo "<th scope=\"row\">" . $row['pr_id']."</th>";
 			        echo "<td>". $row['pr_name'] ."</td>";
-			        echo "<td><img src=\"". $row['pr_image']. "\" width=\"50px\"></td>";
+			        echo "<td><img src=\"". BASEDIR. $row['pr_image']. "\" width=\"50px\"></td>";
               echo "<td>". $row['pr_price']. "</td>";
 			        echo "<td>". $row['pr_date']. "</td>";
 			        echo "<td><a href=\"#\"><i class=\"fas fa-info-circle\"></i></a></td>";

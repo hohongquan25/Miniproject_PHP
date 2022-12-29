@@ -1,6 +1,6 @@
 <?php
 	if ($data['isDelete'] === TRUE) {
-		echo "<script>alert('Xóa sản phẩm thành công !');document.location='index.php'</script>";
+		echo "<script>alert('Xóa sản phẩm thành công !');document.location='index'</script>";
 	}
 
 	else  {

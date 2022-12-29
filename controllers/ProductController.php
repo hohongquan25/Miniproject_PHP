@@ -18,7 +18,8 @@
             if ($imageFileType !="jpg"&& $imageFileType!="png"&&$imageFileType!="jpeg"&&$imageFileType!="gif") {
               $uploadOk=0;
             }
-            move_uploaded_file($_FILES["hinh"]["tmp_name"],$target_file);
+            if (!file_exists($target_file)) 
+                move_uploaded_file($_FILES["hinh"]["tmp_name"],$target_file);
             //xử lý valiprice, nếu mà để trống tên sách
 //            thì báo lỗi và không cho submit form
             $check=is_numeric($price);
@@ -34,7 +35,7 @@
     //                đối tượng dựa theo cấu trúc bảng
                     $isInsert = $this->model->insertProduct($tenSP,$img, $price);
                     if ($isInsert) {
-                         echo "<script>alert('Thêm mới thành công!');document.location='index.php'</script>";
+                         echo "<script>alert('Thêm mới thành công!');document.location='index'</script>";
                         // $_SESSION['success'] = "Thêm mới thành công";
                     }
                     else {
@@ -72,11 +73,12 @@
                 echo "<script>alert('$error');history.back()</script>";
                 die();
         }
-        move_uploaded_file($_FILES["hinh"]["tmp_name"],$target_file);
+        if (!file_exists($target_file)) 
+            move_uploaded_file($_FILES["hinh"]["tmp_name"],$target_file);
         $check=is_numeric($price);
         if($check){
             if ($this->model->updateProduct($id, $name, $target_file, $price, $date)){
-                echo "<script>alert('Sửa sản phẩm thành công !');document.location='index.php'</script>";
+                echo "<script>alert('Sửa sản phẩm thành công !');document.location='index'</script>";
             }else{
                 echo "<script>alert('Đã có lỗi, vui lòng thử lại!');history.back()</script>";
             }
