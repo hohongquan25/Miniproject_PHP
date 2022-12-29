@@ -2,11 +2,12 @@
 
 	class User extends BaseModel
 	{
-		function insert($data) {
-			//write something here
-		}
+		function insert($data) {}
+
 		function update($data) {}
-		function delete($id) {}
+
+		function delete($id)   {}
+
 		function get($id= null){}
 
 		function check_login($username) {
@@ -21,6 +22,7 @@
 
 		       return $user;
 		}
+		
 		function insertCookie($cookie, $username) {
 			 $stmt = $this->mysqli->prepare("UPDATE `user` SET `cookie`=? WHERE `user_name` = ?");
 			        $stmt->bind_param("ss",$cookie,$username);

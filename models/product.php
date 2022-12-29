@@ -49,6 +49,7 @@ class Product extends BaseModel{
             return false;
         }
     }
+
     function update($data) {
         $stmt = $this->mysqli->prepare("UPDATE `products` SET `pr_name`=?, `pr_image`=?, `pr_price`=?, `pr_date`=? WHERE `pr_id` = ?");
         $stmt->bind_param("ssdss",$data["name"],$data["image"],$data["price"],$data["date"],$data["id"]);
@@ -58,6 +59,7 @@ class Product extends BaseModel{
             return false;
         }
     }
+    
     function delete($id) {
         if($this->mysqli->query("DELETE FROM `products` WHERE `pr_id` = '".$id."';") == TRUE){
             return true;

@@ -3,6 +3,7 @@
 		
 		protected $model;
 		protected $data;
+		
 		function __construct() {
 			$this->HandlerURL();
 		}
@@ -17,6 +18,7 @@
         	$this->$action();
         	$this->CreateView($action, $this->data); 
 		}
+
 		public function loadModel($model) {
 			require_once("./models/$model.php");
 			return new $model();
