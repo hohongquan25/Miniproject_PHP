@@ -4,9 +4,6 @@
 // Đăng ký route 
 
 
-Route::set('', function(){
-});
-
 // route index
 Route::set('index', function(){
 	new Index('index');

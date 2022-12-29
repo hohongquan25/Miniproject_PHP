@@ -7,13 +7,16 @@
 
      	function logout() {
      		session_destroy();
+     		setcookie('cookie_user', "", time() - 3600, '/');
      		header('Location:index');
      	}
 
      	function login() {
      		 // Lấy dữ liệu từ trang view
+     		// if use cookie save user
 		    if(isset($_COOKIE['cookie_user'])) {
-        	 	$user = $this->model->getUserFromCookie($_COOKIE['cookie_user']);
+		    	// get user from cookie 
+        	 	$user = $this->model->getUserFromCookie($_COOKIE['cookie_user']);	
         		$this->data["user"] = $user;
 		    }
 		    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -47,7 +50,7 @@
 		            $this->model->insertCookie($cookie, $username);
 		        }
 		        else 
-		        	setcookie('cookie_user', $cookie, time() - 3600, '/');
+		        	setcookie('cookie_user', "",time() - 3600, '/');
 		        // Nếu đăgn nhập thành công, chuyển hướng người dùng đến trang chủ
 		         header('Location:index');
 		         exit;	       
